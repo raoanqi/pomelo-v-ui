@@ -1,0 +1,143 @@
+.p-button {
+    --p-button-font-weight: var(--p-font-weight-primary);
+    --p-button-border-color: var(--p-border-color);
+    --p-button-bg-color: var(--p-fill-color-blank);
+    --p-button-text-color: var(--p-text-color-regular);
+    --p-button-disabled-text-color: var(--p-disabled-text-color);
+    --p-button-disabled-bg-color: var(--p-fill-color-blank);
+    --p-button-disabled-border-color: var(--p-border-color-light);
+    --p-button-hover-text-color: var(--p-color-primary);
+    --p-button-hover-bg-color: var(--p-color-primary-light-9);
+    --p-button-hover-border-color: var(--p-color-primary-light-7);
+    --p-button-active-text-color: var(--p-button-hover-text-color);
+    --p-button-active-border-color: var(--p-color-primary);
+    --p-button-active-bg-color: var(--p-button-hover-bg-color);
+    --p-button-outline-color: var(--p-color-primary-light-5);
+    --p-button-active-color: var(--p-text-color-primary);
+}
+
+.p-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    height: 32px;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--p-button-text-color);
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    transition: .1s;
+    font-weight: var(--p-button-font-weight);
+    user-select: none;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    background-color: var(--p-button-bg-color);
+    border: var(--p-border);
+    border-color: var(--p-button-border-color);
+    padding: 8px 15px;
+    font-size: var(--p-font-size-base);
+    border-radius: var(--p-border-radius-base);
+
+    & + & {
+        margin-left: 12px;
+    }
+
+    &:hover,
+    &:focus {
+        color: var(--p-button-hover-text-color);
+        border-color: var(--p-button-hover-border-color);
+        background-color: var(--p-button-hover-bg-color);
+        outline: none;
+    }
+
+    &:active {
+        color: var(--p-button-active-text-color);
+        border-color: var(--p-button-active-border-color);
+        background-color: var(--p-button-active-bg-color);
+        outline: none;
+    }
+
+    &.is-plain {
+        --p-button-hover-text-color: var(--p-color-primary);
+        --p-button-hover-bg-color: var(--p-fill-color-blank);
+        --p-button-hover-border-color: var(--p-color-primary);
+    }
+
+    /*round*/
+
+    &.is-round {
+        border-radius: var(--p-border-radius-round);
+    }
+
+    /*circle*/
+
+    &.is-circle {
+        border-radius: 50%;
+        padding: 8px;
+    }
+
+    /*disabled*/
+
+    &.is-disabled, &.is-disabled:hover, &.is-disabled:focus,
+    &[disabled], &[disabled]:hover, &[disabled]:focus {
+        color: var(--p-button-disabled-text-color);
+        cursor: not-allowed;
+        background-image: none;
+        background-color: var(--p-button-disabled-bg-color);
+        border-color: var(--p-button-disabled-border-color);
+    }
+
+    /* class*=p-icon表示 “包含”。因此，[class*=p-icon] 匹配的元素可能具有类名如 p-icon、p-icon-large、p-icon-blue 等等 */
+    /* +span表示相邻兄弟选择器 */
+    /* 给class中包含p-icon的元素的紧邻的下一个span元素设置margin-left，实际就是button中的slot内容 */
+
+    [class*=p-icon] + span {
+        margin-left: 6px;
+    }
+}
+
+@each $val in primary, success, warning, info, danger {
+    .p-button--$(val) {
+        --p-button-text-color: var(--p-color-white);
+        --p-button-bg-color: var(--p-color-$(val));
+        --p-button-border-color: var(--p-color-$(val));
+        --p-button-outline-color: var(--p-color-$(val)-light-5);
+        --p-button-active-color: var(--p-color-$(val)-dark-2);
+        --p-button-hover-text-color: var(--p-color-white);
+        --p-button-hover-bg-color: var(--p-color-$(val)-light-3);
+        --p-button-hover-border-color: var(--p-color-$(val)-light-3);
+        --p-button-active-bg-color: var(--p-color-$(val)-dark-2);
+        --p-button-active-border-color: var(--p-color-$(val)-dark-2);
+        --p-button-disabled-text-color: var(--p-color-white);
+        --p-button-disabled-bg-color: var(--p-color-$(val)-light-5);
+        --p-button-disabled-border-color: var(--p-color-$(val)-light-5);
+    }
+
+    .p-button--$(val).is-plain {
+        --p-button-text-color: var(--p-color-$(val));
+        --p-button-bg-color: var(--p-color-$(val)-light-9);
+        --p-button-border-color: var(--p-color-$(val)-light-5);
+        --p-button-hover-text-color: var(--p-color-white);
+        --p-button-hover-bg-color: var(--p-color-$(val));
+        --p-button-hover-border-color: var(--p-color-$(val));
+        --p-button-active-text-color: var(--p-color-white);
+    }
+}
+.p-button--large {
+    --p-button-size: 40px;
+    height: var(--p-button-size);
+    padding: 12px 19px;
+    font-size: var(--p-font-size-base);
+    border-radius: var(--p-border-radius-base);
+}
+
+.p-button--small {
+    --p-button-size: 24px;
+    height: var(--p-button-size);
+    padding: 5px 11px;
+    font-size: 12px;
+    border-radius: calc(var(--p-border-radius-base) - 1px);
+}
+

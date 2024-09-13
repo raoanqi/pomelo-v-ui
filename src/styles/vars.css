@@ -1,0 +1,72 @@
+:root {
+    /*主色+辅助色*/
+    --p-color-white: #ffffff;
+    --p-color-black: #000000;
+    --colors: (
+    primary: #409eff,
+    success: #67c23a,
+    warning: #e6a23c,
+    danger: #f56c6c,
+    info: #909399);
+    @each $val, $color in var(--colors) {
+        --p-color-$(val): $(color);
+        @for $i from 3 to 9 by 2 {
+            --p-color-$(val)-light-$(i): mix(#fff, $(color), .$(i));
+        }
+        --p-color-$(val)-light-8: mix(#fff, $(color), 0.8);
+        --p-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+    }
+
+    /*中性色*/
+    --p-bg-color: #ffffff;
+    --p-bg-color-page: #f2f3f5;
+    --p-bg-color-overlay: #ffffff;
+    --p-text-color-primary: #303133;
+    --p-text-color-regular: #606266;
+    --p-text-color-secondary: #909399;
+    --p-text-color-placeholder: #a8abb2;
+    --p: #c0c4cc;
+    --p-border-color: #dcdfe6;
+    --p-border-color-light: #e4e7ed;
+    --p-border-color-lighter: #ebeef5;
+    --p-border-color-extra-light: #f2f6fc;
+    --p-border-color-dark: #d4d7de;
+    --p-border-color-darker: #cdd0d6;
+    --p-fill-color: #f0f2f5;
+    --p-fill-color-light: #f5f7fa;
+    --p-fill-color-lighter: #fafafa;
+    --p-fill-color-extra-light: #fafcff;
+    --p-fill-color-dark: #ebedf0;
+    --p-fill-color-darker: #e6e8eb;
+    --p-fill-color-blank: #ffffff;
+
+    /*border*/
+    --p-border-width: 1px;
+    --p-border-style: solid;
+    --p-border-color-hover: var(--p);
+    --p-border: var(--p-border-width) var(--p-border-style) var(--p-border-color);
+    --p-border-radius-base: 4px;
+    --p-border-radius-small: 2px;
+    --p-border-radius-round: 20px;
+    --p-border-radius-circle: 100%;
+
+    /*font*/
+    --p-font-size-extra-large: 20px;
+    --p-font-size-large: 18px;
+    --p-font-size-medium: 16px;
+    --p-font-size-base: 14px;
+    --p-font-size-small: 13px;
+    --p-font-size-extra-small: 12px;
+    --p-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    '微软雅黑', Arial, sans-serif;
+    --p-font-weight-primary: 500;
+
+    /*disabled*/
+    --p-disabled-bg-color: var(--p-fill-color-light);
+    --p-disabled-text-color: var(--p-text-color-placeholder);
+    --p-disabled-border-color: var(--p-border-color-light);
+
+    /*animation*/
+    --p-transition-duration: .3s;
+    --p-transition-duration-fast: .2s;
+}

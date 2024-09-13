@@ -1,0 +1,65 @@
+.p-collapse {
+    --p-collapse-border-color: var(--p-border-color-light);
+    --p-collapse-header-height: 48px;
+    --p-collapse-header-bg-color: var(--p-fill-color-blank);
+    --p-collapse-header-text-color: var(--p-text-color-primary);
+    --p-collapse-header-font-size: 13px;
+    --p-collapse-content-bg-color: var(--p-fill-color-blank);
+    --p-collapse-content-font-size: 13px;
+    --p-collapse-content-text-color: var(--p-text-color-primary);
+    --p-collapse-disabled-text-color: var(--p-disabled-text-color);
+    --p-collapse-disabled-border-color: var(--p-border-color-lighter);
+    border-top: 1px solid var(--p-collapse-border-color);
+    border-bottom: 1px solid var(--p-collapse-border-color);
+}
+
+.p-collapse-item__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--p-collapse-header-height);
+    line-height: var(--p-collapse-header-height);
+    background-color: var(--p-collapse-header-bg-color);
+    color: var(--p-collapse-header-text-color);
+    cursor: pointer;
+    font-size: var(--p-collapse-header-font-size);
+    font-weight: 500;
+    transition: border-bottom-color var(--p-transition-duration);
+    outline: none;
+    border-bottom: 1px solid var(--p-collapse-border-color);
+
+    &.is-disabled {
+        color: var(--p-collapse-disabled-text-color);
+        cursor: not-allowed;
+        background-image: none;
+    }
+
+    &.is-active {
+        border-bottom-color: transparent;
+
+        .header-angle {
+            transform: rotate(90deg);
+        }
+    }
+
+    .header-angle {
+        transition: transform var(--p-transition-duration);
+    }
+}
+
+.p-collapse-item__content {
+    will-change: height;
+    background-color: var(--p-collapse-content-bg-color);
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: var(--p-collapse-content-font-size);
+    color: var(--p-collapse-content-text-color);
+    border-bottom: 1px solid var(--p-collapse-border-color);
+    /*注意这个padding带来的动画不流畅问题，以及采用父节点包裹的解决方案*/
+    padding-bottom: 25px;
+}
+
+/*配合组件中的transition各个事件实现淡入淡出的效果*/
+.slide-enter-active, .slide-leave-active {
+    transition: height var(--p-transition-duration);
+}

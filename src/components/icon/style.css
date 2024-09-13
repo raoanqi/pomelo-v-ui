@@ -1,0 +1,18 @@
+.p-icon {
+    /*初始状态下，会继承父元素的颜色，后续根据type的变化进行更新*/
+    --p-icon-color: inherit;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    fill: currentColor;
+    color: var(--p-icon-color);
+    font-size: inherit;
+}
+
+@each $val in primary, info, success, warning, danger {
+    .p-icon--$(val) {
+        --vk-icon-color: var(--p-color-$(val));
+    }
+}
+
