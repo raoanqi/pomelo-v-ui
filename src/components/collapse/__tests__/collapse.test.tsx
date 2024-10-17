@@ -1,4 +1,4 @@
-import { describe, expect } from 'vitest'
+import { describe, expect, test } from 'vitest'
 import { h } from 'vue'
 import { mount } from '@vue/test-utils'
 import Collapse from '@/components/collapse/collapse.vue'
