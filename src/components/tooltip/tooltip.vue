@@ -144,6 +144,7 @@ defineExpose<TooltipInstance>({
 </script>
 
 <template>
+  <!--v-on="outerEvents"：事件并不是确定的，这里使用动态事件-->
   <div class="p-tooltip" ref="popperContainerNode" v-on="outerEvents">
     <!--触发节点-->
     <div class="p-tooltip__trigger" ref="triggerNode" v-on="events">
