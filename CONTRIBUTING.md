@@ -95,7 +95,7 @@
 
 每个组件应当遵循以下结构:
 
-```
+```txt
 src/components/组件名称/
 ├── 组件名称.vue        # 主组件文件
 ├── types.ts           # 组件的TypeScript接口和类型
