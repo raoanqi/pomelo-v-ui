@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "pnpm type-check && pnpm build-only",
     "preview": "vite preview",
     "test": "vitest",
     "build-only": "vite build",
@@ -36,7 +36,6 @@
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
     "jsdom": "^25.0.0",
-    "npm-run-all2": "^6.2.0",
     "postcss": "^8.4.45",
     "postcss-color-mix": "^1.1.0",
     "postcss-each": "^1.1.0",
@@ -49,5 +48,10 @@
     "vite-plugin-vue-devtools": "^7.3.1",
     "vitest": "^2.0.5",
     "vue-tsc": "^2.0.21"
-  }
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=7.0.0"
+  },
+  "packageManager": "pnpm@8.7.0"
 }

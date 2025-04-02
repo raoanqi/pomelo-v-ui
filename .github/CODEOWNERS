@@ -1,0 +1,20 @@
+# 此文件定义了此仓库的代码所有者
+# 代码所有者将在拉取请求上自动被请求进行审核
+
+# 仓库所有内容的默认所有者
+* @project-maintainer-username
+
+# 组件特定所有者
+/src/components/button/ @button-component-expert
+/src/components/dropdown/ @dropdown-component-expert
+/src/components/tooltip/ @tooltip-component-expert
+
+# 文档所有者
+/docs/ @documentation-team
+README.md @documentation-team
+CONTRIBUTING.md @documentation-team
+
+# 构建配置所有者
+*.json @build-experts
+*.js @build-experts
+*.ts @build-experts 

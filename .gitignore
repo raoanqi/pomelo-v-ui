@@ -7,7 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
+
+# npm specific (ignored as we use pnpm)
+package-lock.json
+
+# Build outputs
 .DS_Store
 dist
 dist-ssr
